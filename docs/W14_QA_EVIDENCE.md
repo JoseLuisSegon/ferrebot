@@ -7,6 +7,7 @@
 - Earlier user screenshots showed /pricing and /about rendered, revenue calculation changed from 100 to 200 prospects, and a saved scenario button appeared.
 - **Not yet verified:** mobile responsiveness; accessibility; real buyer interview; actual production integrations.
 - **Verified by user report (2026-11-15):** saved scenario named Week 14 Test persisted across refresh and restored 200 prospects, MXN 15,980/month.
+- **Verified by user report (2026-11-15):** human-confirmation action completed successfully in the sample-order demo; no real order or dispatch occurred.
 
 ## Documented issue and code correction
 **Issue:** Previous demo used language implying a live WhatsApp connection, real end-to-end encryption, actual lost sales and dispatch, while the code implements a local sample workflow. A 'weekly lost metric' was calculated from pending sample order value, which cannot establish lost revenue.
@@ -26,7 +27,7 @@
 | T06 | Set prospects=0 | Monthly and annual revenue become 0 | PENDING | PENDING |
 | T07 | Enter conversion above 100 | Conversion clamps to 100 | PENDING | PENDING |
 | T08 | Open /about | Comparison and 10:1 arithmetic display | Previously shown in screenshot | Screenshot from user |
-| T09 | Confirm sample order | Explicit human confirmation required; no actual dispatch | PENDING | PENDING |
+| T09 | Confirm sample order | Explicit human confirmation required; no actual dispatch | PASS — user reports clicking 'Confirmar muestra' confirmed the simulated order | User-reported manual test in chat; reset not independently verified |
 | T10 | Check small mobile viewport | No overlapping or cut-off essential controls | PENDING | PENDING |
 
 ## Evidence still required
