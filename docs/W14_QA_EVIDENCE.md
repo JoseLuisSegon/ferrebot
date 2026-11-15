@@ -5,7 +5,8 @@
 - Four Week 14 commits were deployed to Vercel production and reported `READY`.
 - User reported that `https://ferrebot.vercel.app` opens when pasted directly in Safari.
 - Earlier user screenshots showed /pricing and /about rendered, revenue calculation changed from 100 to 200 prospects, and a saved scenario button appeared.
-- **Not yet verified:** persistence after reload on the latest version; mobile responsiveness; accessibility; real buyer interview; actual production integrations.
+- **Not yet verified:** mobile responsiveness; accessibility; real buyer interview; actual production integrations.
+- **Verified by user report (2026-11-15):** saved scenario named Week 14 Test persisted across refresh and restored 200 prospects, MXN 15,980/month.
 
 ## Documented issue and code correction
 **Issue:** Previous demo used language implying a live WhatsApp connection, real end-to-end encryption, actual lost sales and dispatch, while the code implements a local sample workflow. A 'weekly lost metric' was calculated from pending sample order value, which cannot establish lost revenue.
@@ -20,7 +21,7 @@
 | T01 | Open / in private Safari | Demo renders, no Vercel login | User reported page opens via pasted URL | User report |
 | T02 | Open /pricing | Three tiers and simulator render | Previously shown in screenshot | Screenshot from user |
 | T03 | Set prospects=200, conversion=10, price=799 | MXN 15,980 monthly and 191,760 annualized | Previously shown in screenshot | Screenshot from user |
-| T04 | Save scenario, reload, click its name | Saved inputs persist and reload | PENDING | PENDING |
+| T04 | Save scenario, reload, click its name | Saved inputs persist and reload | PASS — user reports Week 14 Test restored 200 prospects and MXN 15,980/month | User-reported manual test in chat; screenshot not supplied |
 | T05 | Enter blank scenario name and save | Validation error; no blank saved scenario | PENDING | PENDING |
 | T06 | Set prospects=0 | Monthly and annual revenue become 0 | PENDING | PENDING |
 | T07 | Enter conversion above 100 | Conversion clamps to 100 | PENDING | PENDING |
