@@ -123,6 +123,20 @@ sequenceDiagram
 
 ---
 
+## 13. Independent final functionality and arithmetic audit (22 November 2026)
+
+This is an additional builder-side browser audit, **not** a field-customer or independent synthetic-persona interview. Real customer engagement remains unverified.
+
+- **Safety bug discovered during final review:** With the original fixed fixture still displayed, changing only the text field to `Necesito 3 metros de cable eléctrico` (without pressing Send) initially left **Confirmar muestra** enabled. The earlier guard covered *submitted* unknown text but did not cover pending edits. This was reproduced in the public browser, then fixed in commit `d614fa4` by requiring a synchronized draft and submitted request before the button can be enabled. The server-side handler equivalent does not exist: this is an in-browser academic fixture. The confirm callback also refuses an unsent draft.
+- **Second audit correction:** Inventory figures were raw sample counts but labeled `82%`/`64%`. Commit `d614fa4` now displays **82 bultos / 64 cajas**, uses an explicit *relative-to-starting-sample* bar, and subtracts the correct units after confirmation.
+- **Post-deploy production retest:** Vercel deployment for `d614fa4` reached **READY**. A pending cable edit displayed *Cambios sin enviar* and disabled confirmation **before** pressing Send. Pressing **Enviar pedido** displayed *Revisión manual necesaria: SKU, medida y unidad sin resolver* and kept confirmation disabled. **Cargar muestra completa** re-enabled sample confirmation; confirming showed **MXN 688**, 80 bultos and 63 cajas; simulated dispatch toggled its label; **Reset inventory** restored 82 bultos and 64 cajas. The public `/launch` link and three-series content still loaded.
+- **Arithmetic independently checked:** 2 × MXN 285 cement/bulto + 1 × MXN 118 nail/caja = **MXN 688**. Sample inventory subtracts 2 and 1, not percentages. The Week 14 base case is 100 potential distributors × 10% modeled conversion = **10 expected payers**, × MXN 799/month = **MXN 7,990 gross monthly** and × 12 = **MXN 95,880 gross annualized**. A 10:1 buyer-value test for MXN 799 requires **MXN 7,990 benefit/month**; at a hypothetical MXN 100/hour that is **79.9 hours/month**, not measured savings. A second live calculator test of 250 × 12% × MXN 1,200 returned **30.0**, **MXN 36,000/month** and **MXN 432,000/year**. Conversion rates above 100% were clamped; blank scenario name displayed validation; save, reset and reselect returned the proper state.
+- **Campaign interactions verified:** The interactive next button advanced to the visible STOP state; Repeat returned to stage 1; Copy link displayed success; the Price hypothesis, About, Demo and Launch links navigated correctly. PNG/PDF assets were HTTP 200. Browser logs contained Chrome extension metadata errors, not an identified FerreBot application exception; this is not a full independent accessibility/device certification.
+
+**Next-action gate still open:** Actual distributor delivery/replies; an independently documented fresh-chat persona; full original build conversation; authentic student demo and reflection video. Do not retroactively treat builder QA as those outputs.
+
+---
+
 ## CONTINUITY WITH WEEK 14
 
 The sections below preserve the original Week 14 pricing, architecture and testing plan. The Week 15 launch is an additional distribution experiment, not a claim of new backend capability.
