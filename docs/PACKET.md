@@ -92,6 +92,35 @@ Keep the established **Next.js App Router + React + Tailwind on Vercel**. Add a 
 
 **Current decision:** proceed with a transparent distributor-focused content test, not a claim of full WhatsApp automation. **Gate 1:** owner review of all claims/assets before publication. **Gate 2:** live functional and safety test. **Gate 3:** two real audience exposures with honest engagement reporting. **Next move:** build the scoped creative assets, reproduce/fix the custom-order mismatch, redeploy, then invite eligible distributor feedback. Do not represent any not-yet-completed gate as passed.
 
+## 12. Actors, decision handoff and production verification (post-build addendum, 22 November)
+
+The Week 15 section above was committed **before** the code release (commit `2433075`); this addendum records the subsequently observed build and tests. The existing Week 14 flowchart remains archived below. The explicit Week 15 actors are:
+
+```mermaid
+sequenceDiagram
+  participant Buyer as Ferretería buyer
+  participant Clerk as Distributor clerk
+  participant Demo as FerreBot client demo
+  participant Owner as Distributor approver
+  Buyer->>Clerk: Informal order with missing unit
+  Clerk->>Demo: Enter sample or custom text
+  Demo-->>Clerk: Sample review OR unresolved manual-review state
+  alt Recognized fixed fixture and human consent
+    Clerk->>Owner: Request human confirmation
+    Owner->>Demo: Confirm only the sample
+    Demo-->>Clerk: Locked fictional order and simulated stock
+  else Unknown product or unit
+    Demo-->>Clerk: STOP: clarify before any confirmation
+    Clerk->>Buyer: Ask SKU, measure, quantity or packaging
+  end
+```
+
+**Observed before fix:** typing `Necesito 3 metros de cable eléctrico` still surfaced predetermined cement/nail rows with an enabled sample confirmation; this could falsely suggest a recognized cable order. **Correction committed:** `9afb3ed` (Week 15 launch and guard) to public `/launch` and `/`. **Observed after deployment `dpl_59BCWVboBiq94aDqUzuY79VUctc2`:** the identical cable input showed `Revisión manual necesaria: SKU, medida y unidad sin resolver`, withheld fabricated SKUs and disabled confirmation. The fixed sample, confirmation lock, simulated inventory, three-step walkthrough, downloads and links were separately exercised successfully. **Second copy correction:** commit `f5a1f23` changed unverified outreach verbs from past to prospective; new production deploy `dpl_4BCCiii4wBKXVWn4oi6QQFjU4YRA` was READY, and the fresh `/launch` response was 200 with future-tense copy. This is a factual testing record, not a claim of completed distributor outreach or independent persona feedback.
+
+**Production:** [FerreBot demonstration](https://ferrebot.vercel.app/) · [Week 15 launch](https://ferrebot.vercel.app/launch) · [Static visual](https://ferrebot.vercel.app/launch/ambiguity-card.png) · [Checklist PDF](https://ferrebot.vercel.app/launch/order-checklist.pdf) · [Version history](https://github.com/JoseLuisSegon/ferrebot/commits/main).
+
+**Still open:** (1) distribute A1 and C1 to consenting real decision-makers and log actual reach, replies and next action, including zero; (2) conduct one separate **fresh synthetic persona chat** and preserve its original transcript; (3) submit the authentic development conversation, not a reconstruction; (4) provide actual demo recording. User/peer results must never be inferred from automated checks.
+
 ---
 
 ## CONTINUITY WITH WEEK 14
