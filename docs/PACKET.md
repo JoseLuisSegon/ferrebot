@@ -1,3 +1,104 @@
+# WEEK 15 - DISTRIBUTION | FERREBOT LAUNCH PLAYBOOK
+
+**Author:** José Luis Segon Bustamante | **Role:** Adversary | **Status:** Pre-implementation plan and source-backed hypotheses, 22 November 2026.
+
+## 1. Decision, audience and moment
+
+**Decision:** Test a narrow message, "Review a hardware order before confirming it," before selling general AI order automation. The **first audience** is a Mexican small-distributor owner or operations manager who processes informal requests and could approve a workflow pilot. The **daily users** are distributor order clerks and hardware-store staff; the **hypothesized payer** is the distributor. These roles must not be conflated. The moment of need is an incomplete SKU, size, package or unit in an incoming order, before a human commits it. The familiar alternative is another message, a phone call, a catalogue lookup or existing order-entry software. This workaround could be sufficient; no interview has measured its burden.
+
+**First action offered:** a public, fictional order-review demonstration and an optional invitation to discuss a pilot. **Not targeted now:** household DIY consumers, national ERP-heavy accounts, or buyers demanding live WhatsApp/ERP integration. No actual outreach or willingness-to-pay response is claimed here.
+
+## 2. Falsifiable proposition and evidence discipline
+
+- **Defensible current promise:** "See a simulated hardware order before you confirm it." The linked Next.js prototype visibly presents sample line items and a human confirmation gate.
+- **Hypothesis to test:** A distributor decision-maker finds the unresolved-unit check useful enough to request a demonstration or identify a specific current cost. This has not been established.
+- **Promise we will not make:** "FerreBot automatically reads WhatsApp orders, prevents every error and saves MXN 7,990 monthly." No live WhatsApp ingestion, arbitrary-message LLM extraction, verified savings, payer commitment, or end-to-end ERP integration is present in the inspected production code.
+- **Measured versus simulated:** All SKU matches, percentages, logs, inventory and examples in the public demo are synthetic. Pricing is a concept; MXN 799/month is not a validated market price.
+
+## 3. Global benchmarks and Mexican translation
+
+1. **Yalo / Coca-Cola FEMSA** (company case study): credible deployed Latin American WhatsApp B2B distribution channel, but grocery purchasing and vendor-reported conversion figures do not validate FerreBot's hardware SKU workflow. [Yalo source](https://www.yalo.ai/casos-de-exito/coca-cola-femsa-digitaliza-mas-de-1-millon-de-tienditas-en-america-latina).
+2. **Orderlion**: software offered to wholesalers for converting informal requests into structured order workflows; its product category means messaging conversion is not novel. Hardware unit and catalogue behavior still need local testing. [Orderlion source](https://www.orderlion.com/en/contact-us).
+3. **Handl**: a direct Mexican distributor competitor advertising WhatsApp/PDF order intake, SKU validation and human approval, including ferretería. Treat its claims as vendor claims, not audited outcomes. It challenges any claim that a confirmation gate is unique. [Handl source](https://www.handl.mx/).
+
+**Mexico-specific design choice:** Show a Spanish sample such as "2 bultos de cemento y clavos" and flag **clavos: medida y unidad pendientes**. Truper's distributor catalogue states that box/master-pack quantities may change and be adjusted during order capture; this supports a concrete packaging-reconciliation test, not a claim about nationwide error rates. [Truper 2026 catalogue](https://www.truper.com/CatVigenteDist/termopares-termocoples-y-valvulas-foset-495.html).
+
+## 4. Brand voice and visual rules
+
+**Audience language:** Customer-facing pieces use plain Mexican Spanish. Coursework explanation and the evidence ledger use English; the translation is intentional.
+
+1. **Show the decision, not the buzzword:** state what a person can inspect; avoid "revolutionary AI," "zero errors," and "instant automation."
+2. **Disclose the limit in the same frame:** sample data, manual confirmation and no live WhatsApp connection must be visible with the benefit.
+3. **Respect working vocabulary:** use *pedido, medida, unidad, SKU, caja, pieza, bulto* and one action verb per CTA; do not imply users need technical AI knowledge.
+
+**Weak line and rewrite:** "Order intake, without the back-and-forth" implies an unmeasured reduction. Replace with **"Revisa el pedido antes de confirmarlo"** (English evidence line: "See the order before you confirm it"). Supporting line: "Simulación con productos de ejemplo y revisión humana." The outcome is a reproducible action, not promised savings.
+
+**Visual system:** warm background `#F8F4EC`, dark blue-green `#0A4F50`, charcoal `#243333`, amber `#E8A332` only for unresolved fields, soft border `#DCE6E3`. Hierarchy: 32-44px semibold headline, 18-22px section title, 14-16px readable body, 12px monospace only for SKU/demo labels. Reusable two-panel layout: left = raw order request, right = proposed checklist with ambiguity badge; bottom = explicit human-review CTA and a disclosure. Do not use stock photos as proof of a working service.
+
+**Generated concept mockup:** `W15_FerreBot_Concept_Mockup.png` was generated **before product changes** as a design reference. It is not a screenshot of the deployed system; include it in the packet PDF and compare to actual screens during testing.
+
+## 5. Six concept plan: three recurring series
+
+| Series | Concept A - finished asset | Concept B - planned concept only | Intended question |
+|---|---|---|---|
+| **Antes de confirmar** | **A1: "Clavos sin medida"** - 1080×1350 share image showing a vague order and highlighted missing nail size/unit, labeled demo. | A2: "Caja o pieza" - two-panel sketch about package quantities, no numeric performance claim. | Does the reader spot an ambiguity before confirmation? |
+| **Del mensaje al control** | **B1: "Un pedido, tres decisiones"** - interactive HTML walkthrough in `/launch` with raw text, proposed sample item, manual clarification and stop decision. | B2: "¿Qué hace realmente la demo?" - honest capability/limitation headline. | Can the viewer name the next human action? |
+| **El costo de la ambigüedad** | **C1: "El costo debe medirse"** - printable/downloadable one-page PDF checklist with empty fields for actual correction time and order count. | C2: "¿Vale MXN 799?" - calculation sketch with explicitly hypothetical assumptions. | Will a payer offer actual time/cost data or a pilot conversation? |
+
+**Formats:** branded static image (A1), interactive web content (B1) and a printable PDF (C1). These are three intentionally different finished content formats, not six invented published posts. A2/B2/C2 are documented concepts only.
+
+## 6. Auditable creative process and approval
+
+| Role | Input | Output | Quality gate |
+|---|---|---|---|
+| Research | GitHub deployment, role brief, official vendor sources, Mexican catalogue | Claim ledger: supported, vendor-reported, hypothesis, unknown | Source link, date, category relevance, no invented local statistics |
+| Writing | Audience moment, claim ledger, one CTA | Plain-Spanish headline, caption and small-print disclosure | Promise can be demonstrated on today's URL |
+| Visual production | Voice rules, sample order fixture, mockup | Branded graphic, interactive page, PDF template | Accessible contrast, mobile legibility, disclosure stays visible |
+| Evidence / claim check | Draft assets and live build | Pass/revise list with exact unsupported phrases removed | No fabricated accuracy, ROI, client data, contact or engagement |
+| Style review | Revised assets and 3-rule voice guide | Consistent vocabulary, color and CTA review | Reader can identify audience, problem, next step in five seconds |
+| Revision / human owner | Review notes and actual usability observations | Versioned release decision and notes | **José Luis explicitly approves every public-facing claim before external distribution** |
+
+AI may assist in each role; there is no claimed automatic multi-agent system. Drafting/review steps are inspectable in the repo and actual conversation. Publication of content and outreach require human approval.
+
+## 7. One traceable input to useful output
+
+**Raw fictional input:** "Oye, mándame dos bultos de cemento y clavos urgente." **Research:** the request omits nail length/package, and supplier catalogue packaging can vary. **Writing:** "¿Qué medida de clavo y en qué presentación?" **Visual:** display the original line beside an amber **PENDIENTE** field. **Claims check:** label the sample as simulated and do not present 98% as measured accuracy. **Human approval:** unresolved item cannot be confirmed. **Useful output:** a concrete clarification question plus a visible stop decision, not a fabricated fulfilled order.
+
+## 8. Architecture and scope cut
+
+Keep the established **Next.js App Router + React + Tailwind on Vercel**. Add a self-contained public `/launch` route, static brand assets and a one-page guide. Reuse existing `/`, `/pricing`, `/about` links. The demo remains client-side and contains only fictional products, with **no public database, no names/emails collected, and no hidden AI services**. If anonymous Vercel Analytics events are available, treat them as aggregate interaction signals only; do not report results until observed. The launch CTA leads to the working demo or a user-directed contact action; no subscription or live order is implied. Do not require a public social profile.
+
+**Shadow stop rule:** Unknown SKU, unit, length, price or package must not silently become a confirmed item. A custom message cannot falsely inherit the fixed starter SKUs. Show an unresolved state and block confirmation until a person clarifies it. No automated dispatch.
+
+**Scope cut:** No Firebase/Firestore linkage, real WhatsApp API, persistent order data, ERP, payments, customer records, proprietary AI or measured accuracy in this sprint. Avoid any claim that these were built.
+
+## 9. Tests and real audience distribution protocol
+
+**Mechanical pre/post test:** capture the current behavior when a custom message such as "3 metros de cable" is entered; document any fixed cement/nail output as a reproduced mismatch. After correction, the custom message must show **manual clarification required**, no fabricated SKU and a blocked confirmation. Also test the sample fixture, reset, `/launch` CTA, asset downloads, mobile layout, keyboard focus and 200 responses on all live routes. Save actual screenshots, commit identifiers and Vercel deployment identifiers.
+
+**Two-asset distribution test:** Use **A1 image** and **C1 one-page checklist**. Send each through individually appropriate, permission-based outreach to actual Mexican hardware distributor decision-makers; do not scrape or mass-message contacts. The same shareable `/launch` page supports the optional demo next action. Track **invitation sent, date, channel, whether reply was received, whether link was opened if observable, stated misunderstanding, next-step request** in a private anonymized log. Do not equate a send with a view or a click with purchase intent. Report zero replies when there are none.
+
+**Success criterion for learning, not sales:** obtain at least one concrete reaction about missing SKU/unit, whether the demo describes a real workflow, or actual correction burden from an eligible decision-maker. If no one responds, report the true exposure count, no engagement and the next outreach adjustment. User participation is required to send invitations and capture legitimate replies; no real respondent has yet been documented.
+
+**Synthetic persona:** Separately run a fresh-chat walkthrough from a research-grounded Mexican distributor operations-manager perspective; save its original chat, confusion and actual correction. Label it simulated and never substitute it for distributor feedback.
+
+## 10. Three-year direction, contingent on evidence
+
+- **Year 1:** validate the distributor payer, ambiguous-order frequency and review usefulness with a small voluntary pilot. Only then consider charging.
+- **Year 2:** if evidence justifies it, implement authenticated catalogue review, versioned human decisions and supplier integration with access controls; measure actual error and staff-time differences.
+- **Year 3:** consider repeatable distributor onboarding and differentiated workflow integrations only if retention, net value and security are verified. This is a scenario, not a growth forecast.
+
+## 11. Decision ledger and launch gates
+
+**Current decision:** proceed with a transparent distributor-focused content test, not a claim of full WhatsApp automation. **Gate 1:** owner review of all claims/assets before publication. **Gate 2:** live functional and safety test. **Gate 3:** two real audience exposures with honest engagement reporting. **Next move:** build the scoped creative assets, reproduce/fix the custom-order mismatch, redeploy, then invite eligible distributor feedback. Do not represent any not-yet-completed gate as passed.
+
+---
+
+## CONTINUITY WITH WEEK 14
+
+The sections below preserve the original Week 14 pricing, architecture and testing plan. The Week 15 launch is an additional distribution experiment, not a claim of new backend capability.
+
+
 # WEEK 14 — BUSINESS BENDING PACKET | FERREBOT
 **Status:** prepared before Week 14 code corrections; this is a scoped, testable plan, not evidence of completed user validation.
 
