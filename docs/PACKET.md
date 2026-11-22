@@ -203,3 +203,22 @@ No automatic dispatch; human confirms sample order. Explicit labels for seeded d
 
 ## 10. Open questions
 Actual payer and purchase conditions; onboarding/support cost; unit economics and retention; field testing; production data protection. The previous Week 12 venture AquaRail was pivoted to FerreBot in Week 13 and that history remains acknowledged in CHARTER.md.
+
+
+## Week 15 addendum — independent persona challenge and verified safety correction
+
+**Origin and evidence grade (22 November 2026):** The separate synthetic-persona conversation flagged a real semantic defect: the fixed customer message `1 caja de clavos de 2½ pulgadas` did not uniquely define packaging. This is expert *model critique*, not a real distributor interview. The following browser tests were run against public production. GitHub source history and Vercel READY deployment IDs provide a dated implementation trail.
+
+| Test | Before correction | After correction | Evidence limitation |
+| --- | --- | --- | --- |
+| Original ambiguously packaged 2-cement/1-nail-box request | **FAIL:** `Confirmar muestra` enabled; clicking confirmed fictional MXN 688 and decremented both sample stocks | **PASS for this input:** immediate STOP, box-content warning, no SKU/price proposal and disabled confirmation | Fixed example only, not a full catalog parser |
+| Explicit packaging resolution | No distinct correction step; under-specified fixture was called complete | **PASS in simulation:** deliberate “Simular aclaración: caja de 1 kg (SKU ficticio)” loads a separate 1 kg demonstration fixture; confirmation is then possible | Simulated, not an actual customer answer/catalog check |
+| Change after review (2→20 bags), before Send | Previously repaired in `d614fa4` | **PASS on retest:** confirmation disables immediately; sending the altered text remains unresolved | Internal browser test, not independent operator |
+| Two rapid confirmation clicks | Not independently tested in this persona round | **UI-only PASS:** one local log row, 82→80 sample cement bags and 64→63 sample nail boxes | Does **not** establish server-side replay protection or durable idempotency |
+| Unrelated cable order | Unknown order already stopped | **PASS:** remains blocked; recovery action accurately says it discards custom text to load a *different* fictional sample | Fixed demo controls only |
+| Reset | Sample inventory restored | **PASS:** 82 cement bags, 64 nail boxes, three seeded log rows; original ambiguous order again starts STOP | In-memory state, not persistent data |
+
+**Specific trace:** `20f44b2` — semantic fixture repair and removal of invented confidence percentages; Vercel READY `dpl_88wCYgb5UaoXA9uMYoTC6ZfmvkMv`. `0851b9c` — correct misleading recovery copy on unrelated drafts; final browser-tested READY `dpl_7L796pAsLHFhUZTqZePBBPu2K7nE`. The full test observations and explicit residual risks appear in `DECISIONS.md`. Source: https://github.com/JoseLuisSegon/ferrebot/commits/main (private repository; grading access must be provided separately).
+
+**Falsifiable stop rule:** Suspend the next operator usability test if any input containing a commercially material unresolved SKU/package can be confirmed. A future operational system must require one active catalog SKU with explicit commercial-unit equivalence and durable server-side controls; neither exists in this academic browser prototype. Any real distributor response, actual baseline time, error frequency or willingness to pay remains **unverified**, and would have to be recorded separately (including zero responses).
+
